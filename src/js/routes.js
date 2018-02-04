@@ -2,11 +2,11 @@ angular
     .module('app')
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
 
-        $urlRouterProvider.otherwise('/chooseParking');
+        $urlRouterProvider.otherwise('/login');
 
         $ocLazyLoadProvider.config({
             // Set to true if you want to see what and when is dynamically loaded
-            debug: true
+            debug: false
         });
 
         $breadcrumbProvider.setOptions({
@@ -71,11 +71,11 @@ angular
             }
         })
 
-        .state('app.floor', {
+        .state('app.chooseParking.floor', {
             url: '/chooseFloor/{location}',
             templateUrl: 'views/chooseFloor.html',
             ncyBreadcrumb: {
-                label: 'Choose Floor',
+                label: '{{location}} Parking',
             },
             params: { subtitle: 'floor location', location: '' },
             resolve: {
@@ -87,58 +87,83 @@ angular
             }
         })
 
+        .state('app.chooseParking.floor.map', {
+            url: '/{floor}',
+            templateUrl: 'views/map.html',
+            ncyBreadcrumb: {
+                label: '{{floor}} Floor',
+            },
+            params: { subtitle: 'floor location', floor: '', location: '' },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/map.js']
+                    });
+                }]
+            }
+        })
+
         .state('app.main', {
-                url: '/dashboard',
-                templateUrl: 'views/main.html',
-                //page title goes here
-                ncyBreadcrumb: {
-                    label: 'Home',
-                },
-                //page subtitle goes here
-                params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
-                resolve: {
-                    loadPlugin: ['$ocLazyLoad', function($ocLazyLoad) {
-                        // you can lazy load files for an existing module
-                        return $ocLazyLoad.load([{
-                            serie: true,
-                            name: 'chart.js',
-                            files: [
-                                'node_modules/chart.js/dist/Chart.min.js',
-                                'node_modules/angular-chart.js/dist/angular-chart.min.js'
-                            ]
-                        }, ]);
-                    }],
-                    loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                        // you can lazy load controllers
-                        return $ocLazyLoad.load({
-                            files: ['js/controllers/main.js']
-                        });
-                    }]
-                }
-            })
-            .state('appSimple', {
-                abstract: true,
-                templateUrl: 'views/common/layouts/simple.html',
-                resolve: {
-                    loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
-                        // you can lazy load CSS files
-                        return $ocLazyLoad.load([{
-                            serie: true,
-                            name: 'Font Awesome',
-                            files: ['node_modules/font-awesome/css/font-awesome.min.css']
-                        }, {
-                            serie: true,
-                            name: 'Simple Line Icons',
-                            files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-                        }]);
-                    }],
-                }
-            })
+            url: '/dashboard',
+            templateUrl: 'views/main.html',
+            //page title goes here
+            ncyBreadcrumb: {
+                label: 'Home',
+            },
+            //page subtitle goes here
+            params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
+            resolve: {
+                loadPlugin: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // you can lazy load files for an existing module
+                    return $ocLazyLoad.load([{
+                        serie: true,
+                        name: 'chart.js',
+                        files: [
+                            'node_modules/chart.js/dist/Chart.min.js',
+                            'node_modules/angular-chart.js/dist/angular-chart.min.js'
+                        ]
+                    }, ]);
+                }],
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // you can lazy load controllers
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/main.js']
+                    });
+                }]
+            }
+        })
+
+        .state('appSimple', {
+            abstract: true,
+            templateUrl: 'views/common/layouts/simple.html',
+            resolve: {
+                loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // you can lazy load CSS files
+                    return $ocLazyLoad.load([{
+                        serie: true,
+                        name: 'Font Awesome',
+                        files: ['node_modules/font-awesome/css/font-awesome.min.css']
+                    }, {
+                        serie: true,
+                        name: 'Simple Line Icons',
+                        files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
+                    }]);
+                }],
+            }
+        })
 
         // Additional Pages
         .state('appSimple.login', {
             url: '/login',
-            templateUrl: 'views/pages/login.html'
+            templateUrl: 'views/pages/login.html',
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // you can lazy load controllers
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/login.js']
+                    });
+                }]
+            }
         })
 
         .state('appSimple.register', {

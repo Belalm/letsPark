@@ -14,6 +14,7 @@ var grayLightest = '#f8f9fa';
 angular
     .module('app', [
         'ui.router',
+        'ngStorage',
         'oc.lazyLoad',
         'ncy-angular-breadcrumb',
         'angular-loading-bar'
@@ -22,10 +23,16 @@ angular
         cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.latencyThreshold = 1;
     }])
-    .run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
+    .run(['$rootScope', '$state', '$stateParams', 'AuthService', function($rootScope, $state, $stateParams, AuthService) {
         $rootScope.$on('$stateChangeSuccess', function() {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         });
+        $rootScope.currentuser = {};
         $rootScope.$state = $state;
+
+        var isAuthenticated = AuthService.isAuthenticated();
+
+        if (!isAuthenticated) $state.go('appSimple.login');
+
         return $rootScope.$stateParams = $stateParams;
     }]);

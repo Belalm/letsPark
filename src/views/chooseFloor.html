@@ -1,3 +1,22 @@
-<div class="" ng-controller="chooseFloorCtrl">
-    asdasdasdsa {{location}}
+<div class="flex-row align-items-center" ng-controller="chooseFloorCtrl" ui-view>
+    <div class="container" style=" position: relative;">
+
+        <div class="row" style="padding-bottom: 10px;cursor: pointer;" ng-click="floorChosen('First')">
+            <div style="height: 370px;width:100%;background-color: black; border-radius: 1000px;">
+                <div class="card-body text-center" style="position: absolute;top: 120px;width: 100%;">
+                    <h1 class="text-white">First floor</h1>
+                    <h5 class="text-white">{{leftSpots.first}} parking spots left</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;cursor: pointer;" ng-click="floorChosen('Second')">
+            <div style="height: 370px;width:100%;background-color: black; border-radius: 1000px;" ng-if="location === 'Indoor'">
+                <div class="card-body text-center" style="position: absolute;top: 540px;width: 100%;">
+                    <h1 class="text-white">Second floor</h1>
+                    <h5 class="text-white">{{leftSpots.second}} parking spots left</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,88 @@
+<div class="flex-row align-items-center" ng-controller="mapCtrl" ui-view>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1" style="position: relative">
+                <!-- <div class="line-white"></div> -->
+                <div class="col-md-1">
+                    <div class="line-v" ng-class="{'outdoorHeightLine': location === 'Outdoor'}"></div>
+                </div>
+                <div class="col-md-1">
+                    <div class="line-v-2" ng-class="{'outdoorHeightLine': location === 'Outdoor'}"></div>
+                </div>
+                <div class="rotate" style="position:absolute;margin-left: -127px;margin-top: 22px;">
+                    <h5 style="text-decoration: underline;">Entrance</h5>
+                </div>
+
+                <div ng-show="navDirection.row != null" style="position:absolute; margin-left: -84px;margin-top: 16px; color:darkred; z-index:4">
+                    <i class=" fa fa-2x fa-arrow-circle-down"></i>
+                </div>
+
+                <div class="rotate" style="position:absolute;margin-left: -105px;margin-top: 120px;">
+                    <h5 style="text-decoration: underline;">Exit</h5>
+                </div>
+
+                <div style="position:absolute;margin-left: -141px;margin-top: 16px;color:darkred;z-index:4;">
+                    <i class="fa fa-2x fa-long-arrow-right"></i>
+                </div>
+
+                <div style="position:absolute;margin-left: -144px;margin-top: 121px;color: darkred;z-index:4;">
+                    <i class="fa fa-2x fa-long-arrow-left"></i>
+                </div>
+            </div>
+            <div class="col-md-12 container" style="position:relative">
+                <div class="row" ng-repeat="row in spots[location][floor]">
+                    <div class="popup" ng-repeat="(col, available) in row" style="padding-right:12px; padding-top:5px" ng-click="showPopup($parent.$index, col)">
+                        <!-- 
+                        <div onclick="myFunction()">Click me!
+                            <span class="popuptext" id="myPopup">Popup text...</span>
+                        </div> -->
+
+
+                        <div ng-class="{'bg-car': !available, 'bg-green': available}" style="width:25px; height:40px;">
+                            <span class="popuptext" ng-attr-id="{{ 'myPopup-' + $parent.$index + '-' + col }}" id="myPopup"><button ng-click="confirmReservation($parent.$index, col)" type="button" class="btn btn-primary2">Click Here to Reserve</button></span>
+                            <div ng-show="available" class="rotate" style="color: white;text-align:center;height:25px;width:40px;padding-right: 4px;padding-bottom: 34px;"> {{(col | num)}}</div>
+                        </div>
+
+                        <div class="line-white"></div>
+                        <div ng-show="!($index % 6) && $index!=0">
+                            <img src="img/arrow.png" class="addArrow-right">
+                        </div>
+
+                        <div ng-show="!($index % 5) && $index!=0">
+                            <img src="img/arrow2.png" class="addArrow-left">
+                        </div>
+
+                        <div ng-show="navDirection.row === $parent.$index && navDirection.col >= (col | num) +1" class="direction">
+                        </div>
+
+                        <div ng-show="navDirection.row === $parent.$index && navDirection.col == (col | num)">
+                            <div class="direction-small"></div>
+                            <div class="direction-up"></div>
+                            <!-- <div class="direction"></div> -->
+                        </div>
+                    </div>
+
+                    <div ng-show="navDirection.row && ($index <= navDirection.row - 1)">
+                        <div class="direction-up-big"></div>
+                    </div>
+                    <div ng-show="navDirection.row && ($index === navDirection.row - 1)">
+                        <div class="direction-small-2"></div>
+                    </div>
+
+                    <div ng-show="navDirection.row == 0 && ($index === 0 && navDirection.row === 0)">
+                        <div class="direction-small-3"></div>
+                    </div>
+
+                    <div class="line-white-v"></div>
+                    <div class="line-white-v-2"></div>
+
+                    <div class="line" ng-class="{'outdoorWidthLine': location === 'Outdoor'}"></div>
+                    <div class="line2" ng-class="{'outdoorWidthLine': location === 'Outdoor'}"></div>
+                </div>
+
+            </div>
+            <!-- <div class="pull-right line-2-right"></div> -->
+
+        </div>
+    </div>
+</div>
