@@ -44,15 +44,25 @@ controller('mapCtrl', ["$scope", "$state", "$stateParams",
         $scope.spots.Indoor.First[9][6] = true;
         $scope.spots.Indoor.First[8][4] = true;
 
-        $scope.parkingChosen = function(parking) {
-            $state.go('app.floor', { location: parking });
+        $scope.findMeClosest = function() {
+            var spot = $scope.spots[$scope.location][$scope.floor];
+
+            for (var i = 0; i < Object.keys(spot).length; i++) {
+                for (var j = 0; j < Object.keys(spot[i + 1]).length; j++) {
+                    if (spot[i + 1][j])
+                        return takeMeThere(i, j);
+                }
+            }
         };
 
         $scope.showPopup = function(row, col) {
             if ($scope.spots[$scope.location][$scope.floor][row + 1][col]) {
-                if (previousPopup.row) {
+                if (previousPopup.row != null) {
                     var prevpopup = document.getElementById("myPopup-" + previousPopup.row + "-" + previousPopup.col);
                     prevpopup.classList.toggle("show");
+                    previousPopup.row = null;
+                    previousPopup.col = null;
+                    return;
                 }
 
                 previousPopup.row = row;

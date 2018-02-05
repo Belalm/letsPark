@@ -1,4 +1,27 @@
 <div class="flex-row align-items-center" ng-controller="mapCtrl" ui-view>
+    <div class="">
+        <button ng-click="findMeClosest()" type="button" class="btn btn-primary2">Find Me Closest Spot</button> <span>Or Select:</span>
+        <br><br>
+        <!-- <span>or select a green vacant parking spot or purple available in 5mins, or</span> -->
+        <div class="row">
+            <div class="col-md-1">
+                <div class="bg-green center-text" style="width:25px; height:40px;margin-left:26%"></div>
+                Available
+            </div>
+
+            <div class="col-md-2 center-text">
+                <div class="bg-teal" style="width:25px; height:40px;margin-left:40%"></div>
+                Available In 5 Mins
+            </div>
+
+            <div class="col-md-1 center-text">
+                <div class="bg-car" style="width:25px; height:40px;margin-left:32%"></div>
+                Not Vacant
+            </div>
+        </div>
+
+    </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-1" style="position: relative">
@@ -32,11 +55,6 @@
             <div class="col-md-12 container" style="position:relative">
                 <div class="row" ng-repeat="row in spots[location][floor]">
                     <div class="popup" ng-repeat="(col, available) in row" style="padding-right:12px; padding-top:5px" ng-click="showPopup($parent.$index, col)">
-                        <!-- 
-                        <div onclick="myFunction()">Click me!
-                            <span class="popuptext" id="myPopup">Popup text...</span>
-                        </div> -->
-
 
                         <div ng-class="{'bg-car': !available, 'bg-green': available}" style="width:25px; height:40px;">
                             <span class="popuptext" ng-attr-id="{{ 'myPopup-' + $parent.$index + '-' + col }}" id="myPopup"><button ng-click="confirmReservation($parent.$index, col)" type="button" class="btn btn-primary2">Click Here to Reserve</button></span>
@@ -71,6 +89,8 @@
 
                     <div ng-show="navDirection.row == 0 && ($index === 0 && navDirection.row === 0)">
                         <div class="direction-small-3"></div>
+                        <div class="direction-up-zeroindex"></div>
+
                     </div>
 
                     <div class="line-white-v"></div>

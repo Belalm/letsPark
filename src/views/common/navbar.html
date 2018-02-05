@@ -21,6 +21,17 @@
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
         </li> -->
+        <li>
+            <h6>Time in Session</h6>
+            <timer interval="1000">{{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.</timer>
+        </li>
+        <li>
+            <h6 style="padding-left:30px;padding-top: 10px">Current Time: {{ clock | date:'shortTime'}}</h6>
+        </li>
+        <li style="width:40px">
+            <!-- <h6 style="padding-top: 10px">Current Time: {{ clock | date:'HH:mm:ss'}}</h6> -->
+        </li>
+
         <li class="nav-item dropdown">
 
             <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

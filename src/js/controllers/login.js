@@ -10,13 +10,12 @@ controller('loginCtrl', ["$scope", "$state", "$stateParams", "$rootScope", "Auth
                 $scope.setCurrentUser($scope.user, false);
 
                 $state.go('app.chooseParking');
-            } else if ($scope.user.username === 'admin' && $scope.user.password === 'monajjed') {
+            } else if ($scope.user.username === 'admin' && $scope.user.password === 'admin') {
                 AuthService.saveCurrentUser($scope.user.username, true);
                 $scope.setCurrentUser($scope.user, true);
 
                 $state.go('app.chooseParking');
             }
         };
-
     }
 ]);

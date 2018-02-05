@@ -17,7 +17,8 @@ angular
         'ngStorage',
         'oc.lazyLoad',
         'ncy-angular-breadcrumb',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'timer'
     ])
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
