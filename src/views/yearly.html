@@ -1,14 +1,86 @@
 <div class="flex-row align-items-center" ng-controller="yearlyCtrl" ui-view>
     <div class="row">
-        <!-- <div class="col-md-3" ng-repeat="(month, values) in labels" style="cursor:pointer" ng-click="showMonthInfo(month)">
-            <div class="card bg-success">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Average number of times the parking was full
+                </div>
                 <div class="card-body">
-                    <div class="h4 m-0">{{month}}</div>
-                    <small class="text-muted">Av. Number of people waiting: {{values['Av. Number of people waiting']}}</small><br>
-                    <small class="text-muted">Av waiting time: {{values['Av waiting time']}}</small><br>
-                    <small class="text-muted"><label style="margin-top:6px" ng-class="{'label-good' : values['Status'] === 'Good', 'label-vgood' : values['Status'] === 'Very Good', 'label-fair' : values['Status'] === 'Fair', 'label-danger' : values['Status'] === 'Disaster'}" class="label">{{values['Status']}}</label></small>
+                    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"></canvas>
                 </div>
             </div>
-        </div> -->
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Average waiting time monthly
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Which parking gets filled quicker
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-pie" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- 4 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Busiest hour of the day
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>which month is the busiest month
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-pie" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Average number of users that wait and average time the user waits on a monthly basis
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="h1 text-muted text-right mb-4">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="h4 mb-0">6 Hours</div>
+                    <small class="text-muted text-uppercase font-weight-bold">Average number of hours a car stays park continously</small>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

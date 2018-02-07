@@ -12811,14 +12811,14 @@ hr.transparent {
 
 .direction {
   height: 10px;
-  width: 37px;
+  width: 38px;
   background-color: #35475b;
   position: absolute;
   margin-top: 10px;
   z-index: 3; }
 
 .direction-up {
-  height: 10px;
+  height: 11px;
   width: 10px;
   background-color: #35475b;
   position: absolute;
