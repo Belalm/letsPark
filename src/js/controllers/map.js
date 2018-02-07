@@ -1,6 +1,7 @@
 angular.module('app').
 controller('mapCtrl', ["$scope", "$state", "$stateParams", "$http",
     function($scope, $state, $stateParams, $http) {
+
         $scope.location = $stateParams.location;
         $scope.floor = $stateParams.floor;
 
