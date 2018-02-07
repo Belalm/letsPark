@@ -1,44 +1,65 @@
-<div class="app flex-row align-items-center" ng-controller="registerCtrl">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card mx-4">
-                    <div class="card-body p-4">
-                        <h1>Register</h1>
-                        <p class="text-muted">Create your account</p>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
-                        </div>
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css" href="vendors/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="vendors/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="vendors/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="vendors/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="vendors/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Email" ng-model="user.email">
-                        </div>
+<div class="limiter" ng-controller="registerCtrl">
+    <div class="container-login100" style="background-image: url('img/bg-01.jpg');">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-logo">
+                    <i class="fa fa-car"></i>
+                </span>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-lock"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-                        </div>
+                <span class="login100-form-title p-b-34 p-t-27">
+                    Register
+                </span>
 
-                        <div class="input-group mb-4">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-lock"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="Repeat password" ng-model="confirmPassword">
-                        </div>
-
-                        <button ng-click="register()" type="button" class="btn btn-block btn-success">Create Account</button>
-                    </div>
-
+                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                    <input class="input100" ng-model="user.username" type="text" name="username" placeholder="Username">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
-            </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter email">
+                    <input class="input100" ng-model="user.email" type="email" name="pass" placeholder="Email">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <input class="input100" ng-model="user.password" type="password" name="pass" placeholder="Password">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Confirm password">
+                    <input class="input100" ng-model="confirmPassword" type="password" name="pass" placeholder="Confirm Password">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button ng-click="register()" class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
+
+                <br>
+                <h3 style="text-align:center;color:white">OR</h3>
+                <br>
+
+                <div class="container-login100-form-btn">
+                    <button ng-click="login()" class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+
+            </form>
         </div>
     </div>
 </div>

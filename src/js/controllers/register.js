@@ -11,7 +11,23 @@ controller('registerCtrl', ["$scope", "$state", "$stateParams", "$rootScope", "A
             if ($scope.user.password === $scope.confirmPassword) {
                 $http.post('http://13.84.129.102:3000/api/users', JSON.stringify($scope.user))
                     .then(function(res) {
-                        $state.go('appSimple.login');
+                        if (res.data.password === $scope.user.password) {
+                            console.log("in here");
+                            if (!res.data.isAdmin) {
+
+                                AuthService.saveCurrentUser($scope.user.username, false);
+                                $scope.setCurrentUser($scope.user, false);
+
+                                $state.go('app.chooseParking');
+                            } else if (res.data.isAdmin) {
+                                AuthService.saveCurrentUser($scope.user.username, true);
+                                $scope.setCurrentUser($scope.user, true);
+
+                                $state.go('app.right_now');
+                            }
+                        }
+
+
                     });
             }
         }
@@ -19,5 +35,9 @@ controller('registerCtrl', ["$scope", "$state", "$stateParams", "$rootScope", "A
         $scope.register = function() {
             register();
         };
+
+        $scope.login = function() {
+            $state.go('appSimple.login');
+        }
     }
 ]);
