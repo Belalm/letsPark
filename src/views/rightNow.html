@@ -1,0 +1,93 @@
+<div class="flex-row align-items-center" ng-controller="nowCtrl" ui-view>
+    <h1>Hello {{currentUser.username | prettyField}}!</h1>
+    <br><br>
+    <h3>Real-time Parking Status Right Now</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    Indoor Parking
+                </div>
+                <div class="card-body">
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="dataindoor" chart-labels="labels">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    Outdoor Parking
+                </div>
+                <div class="card-body">
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="dataoutdoor" chart-labels="labels">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <h3>Daily Hourly Statistics for {{clock | date:'mediumDate'}}</h3>
+
+    <br>
+    <div class="card-group mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-car"></i>
+                </div>
+                <div class="h4 mb-0">890/1000</div>
+                <small class="text-muted text-uppercase font-weight-bold">Number of Slots Occupied</small>
+                <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 89%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="h1 text-muted text-right mb-4">
+                    <i class="icon-speedometer"></i>
+                </div>
+                <div class="h4 mb-0">10 minutes</div>
+                <small class="text-muted text-uppercase font-weight-bold">Avg. Waiting Time</small>
+                <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Maximum Number Reached of Slots Occupied -->
+        <div class="card">
+            <div class="card-body">
+                <div class="h1 text-muted text-right mb-4">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="h4 mb-0">36 Users</div>
+                <small class="text-muted text-uppercase font-weight-bold">Avg. number of users waiting during rush hour</small>
+                <!-- <div class="progress progress-xs mt-3 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div> -->
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="h1 text-muted text-right mb-4">
+                    <i class="icon-speedometer"></i>
+                </div>
+                <div class="h4 mb-0">11:00AM - 12:00AM</div>
+                <small class="text-muted text-uppercase font-weight-bold">Busiest Hour of the Day</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-body">
+            <canvas id="bar" class="chart chart-bar" chart-series="seriesBar" chart-data="dataBar" chart-labels="labelsBar">
+            </canvas>
+        </div>
+    </div>
+
+</div>

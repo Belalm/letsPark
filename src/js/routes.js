@@ -10,7 +10,7 @@ angular
         });
 
         $breadcrumbProvider.setOptions({
-            prefixStateName: 'app.chooseParking',
+            prefixStateName: 'app',
             includeAbstract: true,
             template: '<li class="breadcrumb-item" ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"><a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a><span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span></li>'
         });
@@ -54,6 +54,76 @@ angular
                     }],
                 }
             })
+
+        .state('app.right_now', {
+            url: '/rightNow',
+            templateUrl: 'views/rightNow.html',
+            ncyBreadcrumb: {
+                label: 'Right Now Analytics',
+            },
+            params: { subtitle: 'Right Now Analytics' },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/now.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.statistics', {
+            url: "/statistics",
+            abstract: true,
+            template: '<ui-view></ui-view>',
+            ncyBreadcrumb: {
+                label: 'Statistics'
+            }
+        })
+
+        .state('app.statistics.weekly', {
+            url: '/weekly',
+            templateUrl: 'views/weekly.html',
+            ncyBreadcrumb: {
+                label: 'Weekly'
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/weekly.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.statistics.monthly', {
+            url: '/monthly',
+            templateUrl: 'views/monthly.html',
+            ncyBreadcrumb: {
+                label: 'Monthly'
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/monthly.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.statistics.yearly', {
+            url: '/yearly',
+            templateUrl: 'views/yearly.html',
+            ncyBreadcrumb: {
+                label: 'Yearly'
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/yearly.js']
+                    });
+                }]
+            }
+        })
 
         .state('app.chooseParking', {
             url: '/chooseParking',
@@ -168,7 +238,15 @@ angular
 
         .state('appSimple.register', {
             url: '/register',
-            templateUrl: 'views/pages/register.html'
+            templateUrl: 'views/pages/register.html',
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    // you can lazy load controllers
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/register.js']
+                    });
+                }]
+            }
         })
 
         .state('appSimple.404', {

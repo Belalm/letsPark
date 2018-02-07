@@ -19,7 +19,6 @@
                 Not Vacant
             </div>
         </div>
-
     </div>
     <br>
     <div class="container">
@@ -58,7 +57,8 @@
 
                         <div ng-class="{'bg-car': !available, 'bg-green': available}" style="width:25px; height:40px;">
                             <span class="popuptext" ng-attr-id="{{ 'myPopup-' + $parent.$index + '-' + col }}" id="myPopup"><button ng-click="confirmReservation($parent.$index, col)" type="button" class="btn btn-primary2">Click Here to Reserve</button></span>
-                            <div ng-show="available" class="rotate" style="color: white;text-align:center;height:25px;width:40px;padding-right: 4px;padding-bottom: 34px;"> {{(col | num)}}</div>
+                            <img style="margin-left:-12px;margin-top:-40px" src="img/carlocation.png" ng-show="parkedLocation.row && parkedLocation.row === $parent.$index && parkedLocation.col === (col | num)">
+                            <div ng-show="available && !(parkedLocation.row && parkedLocation.row === $parent.$index && parkedLocation.col === (col | num))" class="rotate" style="color: white;text-align:center;height:25px;width:40px;padding-right: 4px;padding-bottom: 34px;"> {{(col | num)}}</div>
                         </div>
 
                         <div class="line-white"></div>

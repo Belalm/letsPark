@@ -1,9 +1,46 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
+            <li class="nav-item" ng-if="currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.right_now"><i class="icon-speedometer"></i> Right Now </a>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.chooseParking"><i class="icon-speedometer"></i> Main </a>
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.chooseParking"><i class="fa fa-car"></i> Lets Park </a>
+            </li>
+
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.statistics')}" ng-if="currentUser.isAdmin">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.statistics')}" href="#"><i class="icon-graph"></i> Statistics</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.weekly"><i class="icon-statistics"></i> Weekly</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.monthly"><i class="icon-statistics"></i> Monthly</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.yearly"><i class="icon-statistics"></i> Yearly</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item" ng-if="!currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.where_parked"><i class="icon-question"></i> Where Am I parked </a>
+            </li>
+
+            <li class="nav-item" ng-if="currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.user_activity"><i class="fa fa-users"></i> Users Activity </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.profile"><i class="icon-user"></i> Profile </a>
+            </li>
+
+            <li class="divider"></li>
+            <li class="divider"></li>
+
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.report_fault"><i class="icon-ban"></i> Report Fault </a>
             </li>
 
             <!-- <li class="divider"></li>

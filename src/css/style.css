@@ -12975,3 +12975,26 @@ hr.transparent {
 
 .center-text {
   text-align: center; }
+
+.label {
+  font-size: 85% !important;
+  padding: 0.4em 0.6em !important;
+  color: white !important; }
+
+.label-good {
+  background-color: #007AFF; }
+
+.label-danger {
+  background-color: #d9534f; }
+
+.label-vgood {
+  background-color: #54d94f; }
+
+.label-fair {
+  background-color: #f60 !important; }
+
+.card.bg-primary {
+  border-color: #36465a !important; }
+
+.bg-primary {
+  background-color: #36465a !important; }
