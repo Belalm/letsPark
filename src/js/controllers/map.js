@@ -49,7 +49,6 @@ controller('mapCtrl', ["$scope", "$state", "$stateParams", "$http",
         $scope.spots.Indoor.First[10][30] = true;
 
         $scope.spots.Indoor.Second[5][4] = true;
-        $scope.spots.Indoor.Second[2][6] = true;
         $scope.spots.Indoor.Second[10][20] = true;
         $scope.spots.Indoor.Second[8][25] = true;
         $scope.spots.Indoor.Second[6][26] = true;
@@ -65,10 +64,9 @@ controller('mapCtrl', ["$scope", "$state", "$stateParams", "$http",
         $scope.spots.Indoor.Second[8][2] = true;
         $scope.spots.Indoor.Second[10][12] = false;
         $scope.spots.Indoor.Second[1][29] = false;
-        $scope.spots.Indoor.Second[3][15] = true;
+        $scope.spots.Indoor.Second[3][20] = true;
 
         $scope.spots.Indoor.Second[3][2] = false;
-        $scope.spots.Indoor.Second[2][6] = true;
         $scope.spots.Indoor.Second[4][4] = true;
         $scope.spots.Indoor.Second[5][5] = true;
         $scope.spots.Indoor.Second[6][6] = true;
