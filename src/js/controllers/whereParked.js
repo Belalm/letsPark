@@ -12,7 +12,8 @@ controller('whereParkedCtrl', ["$scope", "$state", "$stateParams", "$http",
         getParkedSpot();
 
         $scope.convertToNumber = function(num) {
-            return String.fromCharCode(97 + num);
+            if (num != null)
+                return String.fromCharCode(97 + num);
         }
 
         function getParkedSpot() {
