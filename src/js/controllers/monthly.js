@@ -63,9 +63,11 @@ controller('monthlyCtrl', ["$scope", "$state", "$stateParams", "$rootScope", "Au
                 "Av waiting time": "3mins",
                 "Status": "Very Good"
             }
-        }
+        };
 
-        console.log($scope.labels);
+        $scope.showMonthInfo = function(month) {
+            $state.go('app.statistics.monthly.info', { month: month });
+        };
 
     }
 ]);

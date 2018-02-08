@@ -81,15 +81,31 @@ angular
         })
 
         .state('app.statistics.weekly', {
-            url: '/weekly',
+            url: '/daily',
             templateUrl: 'views/weekly.html',
             ncyBreadcrumb: {
-                label: 'Weekly'
+                label: 'Daily'
             },
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         files: ['js/controllers/weekly.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.statistics.weekly.info', {
+            url: '/{day}',
+            templateUrl: 'views/weekly_info.html',
+            ncyBreadcrumb: {
+                label: '{{$stateParams.day}}'
+            },
+            params: { subtitle: 'day', day: '' },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/weekly_info.js']
                     });
                 }]
             }
@@ -110,6 +126,22 @@ angular
             }
         })
 
+        .state('app.statistics.monthly.info', {
+            url: '/{month}',
+            templateUrl: 'views/monthly_info.html',
+            ncyBreadcrumb: {
+                label: '{{$stateParams.month}}'
+            },
+            params: { subtitle: 'month', month: '' },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/monthly_info.js']
+                    });
+                }]
+            }
+        })
+
         .state('app.statistics.yearly', {
             url: '/yearly',
             templateUrl: 'views/yearly.html',
@@ -122,6 +154,69 @@ angular
                         files: ['js/controllers/yearly.js']
                     });
                 }]
+            }
+        })
+
+        .state('app.user_activity', {
+            url: '/user_activity',
+            templateUrl: 'views/userActivity.html',
+            ncyBreadcrumb: {
+                label: 'User Activity',
+            },
+            params: { subtitle: 'User Activity' },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/userActivity.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.reportFault', {
+            url: '/reportFault',
+            templateUrl: 'views/report_fault.html',
+            ncyBreadcrumb: {
+                label: 'Report a fault to Ericsson',
+            }
+        })
+
+        .state('app.complain', {
+            url: '/complain',
+            templateUrl: 'views/complain.html',
+            ncyBreadcrumb: {
+                label: 'Complain',
+            }
+        })
+
+        .state('app.complains', {
+            url: '/complains',
+            templateUrl: 'views/complains.html',
+            ncyBreadcrumb: {
+                label: 'Complains',
+            }
+        })
+
+        .state('app.whereParked', {
+            url: '/whereParked',
+            templateUrl: 'views/whereParked.html',
+            ncyBreadcrumb: {
+                label: 'WhereParked',
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: ['js/controllers/whereParked.js']
+                    });
+                }]
+            }
+        })
+
+        .state('app.profile', {
+            url: '/profile',
+            templateUrl: 'views/profile.html',
+            ncyBreadcrumb: {
+                label: 'Profile',
             }
         })
 

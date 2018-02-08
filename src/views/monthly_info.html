@@ -1,0 +1,56 @@
+<div class="flex-row align-items-center" ng-controller="monthlyinfoCtrl">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="h4 mb-0">15 Mins.</div>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Average Waiting time</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <div class="h4 mb-0">10 People</div>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Total Number of users that waited</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <div class="h4 mb-0">1 hour</div>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Total Number of hours the parking was full</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <div class="h4 mb-0">5</div>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Total Number complaints</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="icon-graph icon-bg"></i>Average waiting time weekly (Mins.)
+            </div>
+            <div class="card-body">
+                <canvas id="bar" class="chart chart-line" chart-data="waitingdata" chart-labels="waitinglabels"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>

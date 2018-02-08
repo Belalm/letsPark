@@ -12366,50 +12366,6 @@ app-root {
 .breadcrumb {
   transition: left 0.25s, right 0.25s, width 0.25s; }
 
-@media (max-width: 991.98px) {
-  .app-header.navbar {
-    position: fixed !important;
-    z-index: 1020;
-    width: 100%;
-    text-align: center;
-    background-color: #fff;
-    border-bottom: 1px solid #a4b7c1; }
-    .app-header.navbar .navbar-toggler {
-      color: #536c79; }
-    .app-header.navbar .navbar-brand {
-      position: absolute;
-      left: 50%;
-      margin-left: -77.5px; }
-  .app-body {
-    margin-top: 55px; }
-  .breadcrumb-fixed .main:nth-child(2) .breadcrumb {
-    right: auto;
-    left: auto;
-    width: 100%; }
-  .sidebar {
-    position: fixed;
-    z-index: 1019;
-    width: 220px;
-    height: calc(100vh - 55px);
-    margin-left: -220px; }
-    .sidebar .sidebar-nav,
-    .sidebar .nav {
-      width: 220px;
-      min-height: calc(100vh - 55px); }
-    .sidebar .sidebar-minimizer {
-      display: none; }
-  .main,
-  .app-footer {
-    margin-left: 0 !important; }
-  .sidebar-hidden .sidebar {
-    margin-left: -220px; }
-  .sidebar-mobile-show .sidebar {
-    width: 220px;
-    margin-left: 0; }
-  .sidebar-mobile-show .main {
-    margin-right: -220px !important;
-    margin-left: 220px !important; } }
-
 hr.transparent {
   border-top: 1px solid transparent; }
 

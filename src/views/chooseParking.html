@@ -1,8 +1,12 @@
 <div class="flex-row align-items-center" ng-controller="chooseParkingCtrl" ui-view>
     <div class="container" style=" position: relative;">
 
-        <div class="row" ng-click="parkingChosen('Indoor')" style="padding-bottom: 10px;cursor: pointer;">
-            <div style="height: 370px;width:100%;background-image: url('img/indoor-parking.jpg'); border-radius: 1000px;">
+        <div style="text-align:center">
+            <h3>Please proceed by choosing your prefered parking.</h3>
+            <br>
+        </div>
+        <div class="col-md-6" ng-click="parkingChosen('Indoor')" style="padding-bottom: 10px;cursor: pointer;float:left">
+            <div style="height: 370px;width:100%;background-image: url('img/indoor-parking.jpg');background-repeat:no-repeat; border-radius: 1000px;">
                 <div class="card-body text-center" style="position: absolute;top: 160px;width: 100%;">
                     <h1 class="text-white">Indoor Parking</h1>
                     <h5 class="text-white">{{leftSpots.indoor}} parking spots left</h5>
@@ -10,9 +14,9 @@
             </div>
         </div>
 
-        <div class="row" ng-click="parkingChosen('Outdoor')" style="cursor: pointer;">
-            <div style="height: 370px;width:100%;background-image: url('img/outdoor-parking.png'); border-radius: 1000px;">
-                <div class="card-body text-center" style="position: absolute;top: 540px;width: 100%;">
+        <div class="col-md-6" ng-click="parkingChosen('Outdoor')" style="cursor: pointer;float:right">
+            <div style="height: 370px;width:100%;background-image: url('img/outdoor-parking.png'); background-size:cover ;background-repeat:no-repeat;border-radius: 1000px;">
+                <div class="card-body text-center" style="position: absolute;top: 160px;width: 100%;">
                     <h1 class="text-white">Outdoor Parking</h1>
                     <h5 class="text-white">{{leftSpots.outdoor}} parking spots left</h5>
                 </div>

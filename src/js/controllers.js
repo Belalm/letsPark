@@ -24,7 +24,6 @@ angular.module('app')
             };
 
             $scope.logout = function() {
-                console.log("In here");
                 AuthService.logout();
                 $state.go('appSimple.login');
             };

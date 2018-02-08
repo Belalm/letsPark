@@ -8,7 +8,12 @@ controller('chooseParkingCtrl', ["$scope", "$state", "$rootScope",
         };
 
         $scope.parkingChosen = function(parking) {
-            $state.go('app.chooseParking.floor', { location: parking });
+            if (parking === 'Indoor') {
+                $state.go('app.chooseParking.floor', { location: parking });
+                return;
+            }
+            $state.go('app.chooseParking.floor.map', { location: parking, floor: "First" });
+
         }
     }
 ]);

@@ -13,7 +13,7 @@
                 <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.statistics')}" href="#"><i class="icon-graph"></i> Statistics</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.weekly"><i class="icon-statistics"></i> Weekly</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.weekly"><i class="icon-statistics"></i> Daily</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" ui-sref-active="active" ui-sref="app.statistics.monthly"><i class="icon-statistics"></i> Monthly</a>
@@ -25,23 +25,32 @@
             </li>
 
             <li class="nav-item" ng-if="!currentUser.isAdmin">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.where_parked"><i class="icon-question"></i> Where Am I parked </a>
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.whereParked"><i class="icon-question"></i> Where Am I parked </a>
             </li>
 
             <li class="nav-item" ng-if="currentUser.isAdmin">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.user_activity"><i class="fa fa-users"></i> Users Activity </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" ng-if="currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.complains"><i class="icon-ban"></i> Complains </a>
+            </li>
+
+            <!-- <li class="nav-item">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.profile"><i class="icon-user"></i> Profile </a>
-            </li>
+            </li> -->
 
             <li class="divider"></li>
             <li class="divider"></li>
 
-            <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.report_fault"><i class="icon-ban"></i> Report Fault </a>
+            <li class="nav-item" ng-if="currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.reportFault"><i class="icon-ban"></i> Report Fault </a>
             </li>
+
+            <li class="nav-item" ng-if="!currentUser.isAdmin">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.complain"><i class="icon-ban"></i> Complain </a>
+            </li>
+
 
             <!-- <li class="divider"></li>
             <li class="nav-title">

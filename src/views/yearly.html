@@ -1,13 +1,23 @@
 <div class="flex-row align-items-center" ng-controller="yearlyCtrl" ui-view>
     <div class="row">
-
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>Average number of times the parking was full
+                    <i class="icon-graph icon-bg"></i>Average waiting time monthly (Mins.)
                 </div>
                 <div class="card-body">
-                    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"></canvas>
+                    <canvas id="bar" class="chart chart-line" chart-data="waitingdata" chart-labels="waitinglabels"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Total number of users that waited
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-line" chart-data="userwaiteddata" chart-labels="userwaitedlabels"></canvas>
                 </div>
             </div>
         </div>
@@ -15,10 +25,20 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>Average waiting time monthly
+                    <i class="icon-graph icon-bg"></i> Which parking gets filled quicker? (%)
                 </div>
                 <div class="card-body">
-                    <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels"></canvas>
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="populardata" chart-labels="popularlabels"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Total number of times the parking was full
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-bar" chart-data="fulldata" chart-labels="fulllabels"></canvas>
                 </div>
             </div>
         </div>
@@ -26,61 +46,45 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>Which parking gets filled quicker
+                    <i class="icon-graph icon-bg"></i>Which month is the busiest month? (%)
                 </div>
                 <div class="card-body">
-                    <canvas id="bar" class="chart chart-pie" chart-data="data" chart-labels="labels"></canvas>
-                </div>
-            </div>
-        </div>
-        <!-- 4 -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>Busiest hour of the day
-                </div>
-                <div class="card-body">
-                    <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels"></canvas>
+                    <canvas id="bar" class="chart chart-pie" chart-data="busydata" chart-labels="busylabels"></canvas>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>which month is the busiest month
-                </div>
-                <div class="card-body">
-                    <canvas id="bar" class="chart chart-pie" chart-data="data" chart-labels="labels"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <i class="icon-graph icon-bg"></i>Average number of users that wait and average time the user waits on a monthly basis
-                </div>
-                <div class="card-body">
-                    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"></canvas>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="col-md-4">
-
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-user"></i>
-                    </div>
                     <div class="h4 mb-0">6 Hours</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Average number of hours a car stays park continously</small>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Average number of hours a car stays parked continously</small>
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="h4 mb-0">1100 Complains</div>
+                    <br>
+                    <small class="text-muted text-uppercase font-weight-bold">Total Number of Complains</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-graph icon-bg"></i>Average number of users that wait - Average time the user waits
+                </div>
+                <div class="card-body">
+                    <canvas id="bar" class="chart chart-bar" chart-series="seriesBar" chart-data="data" chart-labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>

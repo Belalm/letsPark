@@ -1,0 +1,19 @@
+<div class="flex-row align-items-center" ng-controller="whereParkedCtrl" ui-view>
+    <div class="row">
+        <div class="card" style="width:100%">
+            <div class="card-body">
+                <div class="h2 m-0">You are parked Indoors - First floor</div><br>
+                <h5 class="text-muted">Row: {{convertToNumber(parkedLocation.row) | capitalize}}</h5><br>
+                <h5 class="text-muted">Spot Number: {{parkedLocation.col}}</h5>
+
+                <br><br>
+                <button type="button" ng-click="showme()" class="btn btn-success">Show me where</button>
+
+            </div>
+        </div>
+
+        <button type="button" ng-click="leaving()" class="btn btn-primary2">Leaving in 5 minutes ?</button>
+
+        <h5 style="padding-left:20px; padding-top:8px" class="text-black">{{message}}</h5>
+    </div>
+</div>

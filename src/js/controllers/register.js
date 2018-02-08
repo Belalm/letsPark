@@ -12,7 +12,6 @@ controller('registerCtrl', ["$scope", "$state", "$stateParams", "$rootScope", "A
                 $http.post('http://13.84.129.102:3000/api/users', JSON.stringify($scope.user))
                     .then(function(res) {
                         if (res.data.password === $scope.user.password) {
-                            console.log("in here");
                             if (!res.data.isAdmin) {
 
                                 AuthService.saveCurrentUser($scope.user.username, false);
