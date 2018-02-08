@@ -55,7 +55,7 @@
                 <div class="row" ng-repeat="row in spots[location][floor]">
                     <div class="popup" ng-repeat="(col, available) in row" style="padding-right:12px; padding-top:5px" ng-click="showPopup($parent.$index, col)">
 
-                        <div ng-class="{'bg-teal': !available && isAvailablein5($parent.$index,col), 'bg-car': !available && !isAvailablein5($parent.$index,col), 'bg-green': available}" style="width:25px; height:40px;">
+                        <div ng-class="{'bg-handicap': ($parent.$index)%3===2 && (col|num) === 30, 'bg-teal': !available && isAvailablein5($parent.$index,col), 'bg-car': !available && !isAvailablein5($parent.$index,col), 'bg-green': available}" style="width:25px; height:40px;">
                             <span class="popuptext" ng-attr-id="{{ 'myPopup-' + $parent.$index + '-' + col }}" id="myPopup"><button ng-click="confirmReservation($parent.$index, col)" type="button" class="btn btn-primary2">Click Here to Reserve</button></span>
                             <img style="margin-left:-12px;margin-top:-40px" src="img/carlocation.png" ng-show="parkedLocation.row != null && parkedLocation.row === $parent.$index && parkedLocation.col === (col | num)">
                             <div ng-show="available && !(parkedLocation.row != null && parkedLocation.row === $parent.$index && parkedLocation.col === (col | num))" class="rotate" style="color: white;text-align:center;height:25px;width:40px;padding-right: 4px;padding-bottom: 34px;">{{(col | num)}}</div>
@@ -100,6 +100,14 @@
 
                     <div class="line" ng-class="{'outdoorWidthLine': location === 'Outdoor'}"></div>
                     <div class="line2" ng-class="{'outdoorWidthLine': location === 'Outdoor'}"></div>
+                    <div ng-show="location === 'Outdoor'">
+                        <div style="margin-top:-35px"><i style="color:green" class="fa fa-2x fa-tree"></i></div>
+                        <div style="margin-top:-35px"><i style="color:green" class="fa fa-2x fa-tree"></i></div>
+                        <div style="margin-top:-35px"><i style="color:green" class="fa fa-2x fa-tree"></i></div>
+                    </div>
+
+
+
                     <h3 style="margin-left:25px; margin-top:-35px">{{convertToNumber($index) | capitalize}}</h3>
 
                 </div>

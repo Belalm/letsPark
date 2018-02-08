@@ -12954,3 +12954,7 @@ hr.transparent {
 
 .bg-primary {
   background-color: #36465a !important; }
+
+.bg-handicap {
+  background-image: url("../img/handi.png");
+  background-repeat: round; }
